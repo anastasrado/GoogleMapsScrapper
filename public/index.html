@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Maps Polygon Search</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<GOOGLE_API_KEY>&libraries=drawing,places"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Google Maps Polygon Search</h1>
+    <div id="controls">
+        <input type="text" id="addressInput" placeholder="Enter address">
+        <button onclick="jumpToAddress()">Go</button>
+        <button onclick="exportAddresses()">Export Addresses</button>
+        <label for="stepSizePicker">Step Size:</label>
+        <select id="stepSizePicker">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+        </select>
+    </div>
+    <div id="map"></div>
+    <div id="apiCalls">
+        <h3>API Call Counts:</h3>
+        <p>Geocoding API Calls: <span id="geocodingAPICount">0</span></p>
+        <p>Places API Calls: <span id="placesAPICount">0</span></p>
+    </div>
+    <div id="loading">
+        <div class="spinner"></div>
+    </div>
+    <a id="downloadLink" style="display:none;"></a>
+</body>
+</html>
