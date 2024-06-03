@@ -5,16 +5,15 @@ Google Map Address Scrapper is a Node.js application designed to scrape, manage,
 
 ## Features
 - **Address Scraping:** Automatically scrape addresses from specified geographic coordinates.
+- **Google Maps Integration:** Displays a map where you can insert address and jump to location and then have the ability to draw a polygon and get all the addresses from that areal.
 - **Customizable Step Size:** Adjust the granularity of the scraping process to balance between accuracy and performance.
-- **Google Maps Integration:** Display addresses on an interactive Google Map.
-- **Static Files:** Serve static files from the public directory.
-- **Backend Server:** Powered by Express.js to handle requests and data processing.
 
 ## How It Works
 
 ### 1. Address Scraping
-The application scrapes addresses within a defined geographic area using coordinates provided by the user. The scraping process involves:
+The application scrapes addresses within a defined polygon on a map. The scraping process involves:
 
+- **Selecting the area:** Selecting the area with a polygon on the map
 - **Defining Step Sizes:** The step size (low, medium, high) determines the granularity of the scraping grid. Smaller step sizes result in more detailed scraping but require more API calls.
 - **API Usage:** The application uses the Google Maps Geocoding API to fetch address data. It calculates points within the specified polygon and checks if each point is within the polygon boundaries. Valid points are sent to the Geocoding API to retrieve addresses.
 
