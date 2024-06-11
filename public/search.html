@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Address Search and Marking</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="search.js"></script>
+    <link rel="stylesheet" href="search.css">
+</head>
+<body>
+    <h1>Address Search and Marking</h1>
+    <button onclick="window.location.href='index.html'" class="back-button">Back to Main Page</button>
+    <div id="controls">
+        <input type="text" id="searchInput" placeholder="Enter address">
+        <button onclick="searchAddresses()" class="search-button">Search</button>
+    </div>
+    <table id="addressesTable">
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Timestamp</th>
+                <th>Flier Sent</th>
+                <th>Last Marked</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically added here -->
+        </tbody>
+    </table>
+    <div id="loading">
+        <div class="spinner"></div>
+    </div>
+</body>
+</html>
