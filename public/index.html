@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Google Maps Polygon Search</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<GOOGLE_API_KEY>&libraries=drawing,places"></script>
+    <title>Google Maps Marker Search</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&libraries=places"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Google Maps Polygon Search</h1>
-    <div id="controls">
+    <div id="controls" style="position: absolute; z-index: 9999; top: 80px; right: 20px;">
         <input type="text" id="addressInput" placeholder="Enter address">
         <button onclick="jumpToAddress()">Go</button>
-        <button onclick="exportAddresses()">Export Addresses</button>
-        <label for="stepSizePicker">Step Size:</label>
-        <select id="stepSizePicker">
-            <option value="low">Low</option>
-            <option value="medium" selected>Medium</option>
-            <option value="high">High</option>
-        </select>
+        <button onclick="pullData()">Pull Data</button>
+        <button onclick="exportToExcel()" style="display:none;" id="exportExcelButton">Export to Excel</button>
+        <button onclick="clearAllMarkers()">Clear All</button>
+        <button id="toggleAddressesButton" onclick="toggleAddresses()">Show Addresses in Region</button>
+        <button onclick="window.location.href='search.html'">Go to Search Page</button>
+        <div id="costDisplay" style="height: 100%; background-color: white; display:block; margin-left: 10px; padding: 8px 12px;">Cost: $0.00</div>
     </div>
-    <div id="map"></div>
-    <div id="apiCalls">
-        <h3>API Call Counts:</h3>
-        <p>Geocoding API Calls: <span id="geocodingAPICount">0</span></p>
-        <p>Places API Calls: <span id="placesAPICount">0</span></p>
-    </div>
+    <div id="map" style="height: 90vh;"></div>
+    <table id="markersTable">
+        <thead>
+            <tr>
+                <th>Address</th>
+                <th>Last Exported</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically added here -->
+        </tbody>
+    </table>
+    <button onclick="pullData()">Pull Data</button>
+    <button onclick="exportToExcel()" style="display:none;" id="exportExcelButton">Export to Excel</button>
+    <button onclick="clearAllMarkers()">Clear All</button>
     <div id="loading">
         <div class="spinner"></div>
     </div>
-    <a id="downloadLink" style="display:none;"></a>
+    <script>
+        window.onload = initMap;
+    </script>
 </body>
 </html>
