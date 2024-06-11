@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 
-const GOOGLE_API_KEY = 'YOUR KEY';
+const GOOGLE_API_KEY = 'Your key';
 
 const app = express();
 const PORT = 3000;
@@ -191,7 +191,8 @@ app.post('/api/get-addresses-in-region', (req, res) => {
     console.log('Received bounds:', { ne, sw });
 
     const query = `
-        SELECT address, lat, lng FROM exports
+        SELECT address, lat, lng, timestamp, flier_sent
+        FROM exports
         WHERE lat BETWEEN ? AND ?
         AND lng BETWEEN ? AND ?
     `;
