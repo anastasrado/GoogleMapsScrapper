@@ -313,7 +313,7 @@ async function toggleAddresses() {
                 const marker = new google.maps.Marker({
                     position: latLng,
                     map: map,
-                    icon: address.flier_sent ? 'http://maps.google.com/mapfiles/ms/icons/green-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+                    icon: address.flier_sent ? 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png' : 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
                     title: address.address
                 });
                 addressMarkers.push(marker);
