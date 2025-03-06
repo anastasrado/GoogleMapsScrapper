@@ -43,7 +43,7 @@ The `search.html` page where you can search for the addresses in the database an
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/abastasrado/google-map-address-scrapper.git
+   git clone https://github.com/anastasrado/GoogleMapsScrapper.git
    cd google-map-address-scrapper
    
 2. **Install dependecies:**
